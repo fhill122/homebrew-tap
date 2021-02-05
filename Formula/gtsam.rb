@@ -1,5 +1,5 @@
 class Gtsam < Formula
-  desc "A C++ Library that implement smoothing and mapping in robotics and vision."
+  desc "C++ Library that implement smoothing and mapping in robotics and vision"
   homepage "https://gtsam.org"
   url "https://github.com/borglab/gtsam/archive/4.0.3.tar.gz"
   sha256 "eaa561749edf7a2d402981828253e28aed6c717dae35738301c5ab23e2595f25"
@@ -27,7 +27,8 @@ class Gtsam < Formula
           return (int)poseC.y();
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{HOMEBREW_PREFIX}/include/eigen3", "-L#{lib}", "-lgtsam", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{HOMEBREW_PREFIX}/include/eigen3", "-L#{lib}", "-lgtsam", 
+                    "-o", "test"
     system "./test"
   end
 end
