@@ -1,5 +1,5 @@
 class Gtsam < Formula
-  desc "GTSAM is a library of C++ classes that implement smoothing and mapping (SAM) in robotics and vision, using factor graphs and Bayes networks as the underlying computing paradigm rather than sparse matrices."
+  desc "A C++ Library that implement smoothing and mapping in robotics and vision."
   homepage "https://gtsam.org"
   url "https://github.com/borglab/gtsam/archive/4.0.3.tar.gz"
   sha256 "eaa561749edf7a2d402981828253e28aed6c717dae35738301c5ab23e2595f25"
@@ -11,7 +11,6 @@ class Gtsam < Formula
 
   def install
     mkdir "build" do
-      # ENV.deparallelize  # if your formula fails when building in parallel
       system "cmake", "..", *std_cmake_args, "-DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF"
       system "make"
       system "make", "install"
