@@ -27,7 +27,7 @@ class Gtsam < Formula
           return (int)poseC.y();
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{HOMEBREW_PREFIX}/include/eigen3", "-L#{lib}", "-lgtsam", 
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{HOMEBREW_PREFIX}/include/eigen3", "-L#{lib}", "-lgtsam",
                     "-o", "test"
     system "./test"
   end
