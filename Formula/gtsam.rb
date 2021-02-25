@@ -15,6 +15,7 @@ class Gtsam < Formula
       system "make"
       system "make", "install"
     end
+    system "ln", "-s", "#{HOMEBREW_PREFIX}/include/eigen3/Eigen", "#{HOMEBREW_PREFIX}/include/Eigen"
   end
 
   test do
@@ -27,8 +28,7 @@ class Gtsam < Formula
           return (int)poseC.y();
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{HOMEBREW_PREFIX}/include/eigen3", "-L#{lib}", "-lgtsam",
-                    "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-lgtsam", "-o", "test"
     system "./test"
   end
 end
