@@ -11,7 +11,7 @@ class Gtsam < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF"
+      system "cmake", "..", *std_cmake_args, "-DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF", "-DGTSAM_WITH_TBB=OFF"
       system "make"
       system "make", "install"
     end
