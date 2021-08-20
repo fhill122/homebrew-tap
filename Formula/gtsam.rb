@@ -11,7 +11,8 @@ class Gtsam < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF", "-DGTSAM_WITH_TBB=OFF"
+      # note to fix sanitizer memory warning: enable march=native here, in every project using this lib, and every other libs use eigen along with it
+      system "cmake", "..", *std_cmake_args, "-DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF", "-DGTSAM_WITH_TBB=OFF", "-DGTSAM_USE_SYSTEM_EIGEN=ON"
       system "make"
       system "make", "install"
     end
