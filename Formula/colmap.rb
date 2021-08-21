@@ -1,22 +1,21 @@
 class Colmap < Formula
-  desc "COLMAP - Structure-from-Motion and Multi-View Stereo"
+  desc "Structure-from-Motion and Multi-View Stereo"
   homepage "https://colmap.github.io"
-  url "https://github.com/colmap/colmap/archive/refs/tags/3.6.zip"
-  sha256 "dde184ab37b4cfa3f96210780ba88a26949051963303d180264f468760185565"
+  url "https://github.com/colmap/colmap/archive/refs/tags/3.6.tar.gz"
+  sha256 "ea22d026a3b13d339551319f4562fe1471b7232433695970704669755031a192"
   license "BSD-3-Clause"
 
   depends_on "cmake" => :build
-  depends_on "git"
   depends_on "boost"
   depends_on "eigen"
   depends_on "freeimage"
-  depends_on "glog"
   depends_on "gflags"
-  depends_on "suite-sparse"
-  depends_on "ceres-solver"
+  depends_on "glog"
   depends_on "qt@5"
+  depends_on "ceres-solver"
   depends_on "glew"
   depends_on "cgal"
+  depends_on "suite-sparse"
 
   def install
     mkdir "build" do
